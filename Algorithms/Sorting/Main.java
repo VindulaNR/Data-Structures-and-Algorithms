@@ -3,10 +3,11 @@ Topic : Sorting Algorithms
  */
 
 package Algorithms.Sorting;
-import Algorithms.Sorting.BubbleSort.bubbleSort;
+//import Algorithms.Sorting.bubbleSort;
+//import Algorithms.Sorting.selectionSort;
 
 //Inherits the bubbleSort to get the implemented bubbleSorting Method
-class Main extends bubbleSort {
+public class Main extends Sorting{
 
     //printList function to print the lists
     void printList(int [] list) {
@@ -18,24 +19,48 @@ class Main extends bubbleSort {
         //Initialize the unordered list
         int unsortedList[] = {2,8,4,44,12,90,1,6,10,50,12,4,75,83};
         int unsortedList1[] = {2,10,34,23,56,78,98,101,200,300};
+        long start;
+        long end;
+        int sortedList[];
         //new Main instatnce
         Main test = new Main();
 
         //Bubble sort 
         System.out.println("**********Bubble Sorting Algorthms***************");
         System.out.println("1.Simple Bubble sort");
-        long start = System.nanoTime();
-        int sortedList[] = test.bubbleSort1(unsortedList);
-        long end = System.nanoTime();
+        start = System.nanoTime();
+        sortedList = test.bubbleSort_simple(unsortedList);
+        end = System.nanoTime();
         test.printList(sortedList);
         System.out.print("\nExecution Time : "+(end-start)+"\n");
 
         //Optimised bubble sort
         System.out.println("1.Simple Bubble sort");
         start = System.nanoTime();
-        sortedList = test.bubbleSort2(unsortedList);
+        sortedList = test.bubbleSort_optimized(unsortedList);
+        end = System.nanoTime();
+        test.printList(unsortedList);
+        System.out.print("\nExecution Time : "+(end-start)+"\n\n");
+
+        System.out.println("1.Selection Sort Algorithm");
+        start = System.nanoTime();
+        sortedList = test.selectionSort1(unsortedList);
         end = System.nanoTime();
         test.printList(sortedList);
-        System.out.print("\nExecution Time : "+(end-start)+"\n");
+        System.out.print("\nExecution Time : "+(end-start)+"\n\n");
+
+        System.out.println("1.Insertion  Sort Algorithm");
+        start = System.nanoTime();
+        sortedList = test.insertionSort1(unsortedList);
+        end = System.nanoTime();
+        test.printList(sortedList);
+        System.out.print("\nExecution Time : "+(end-start)+"\n\n");
+
+        System.out.println("1.Insertion  Sort Algorithm");
+        start = System.nanoTime();
+        sortedList = test.insertionSort1(unsortedList);
+        end = System.nanoTime();
+        test.printList(sortedList);
+        System.out.print("\nExecution Time : "+(end-start)+"\n\n");
     }
 }
